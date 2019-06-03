@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test live chart</title>
+</head>
+<body>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+</body>
+</html>
+
+<style>
+    .ld-label {
+        width:200px;
+        display: inline-block;
+    }
+
+    .ld-row {
+    }
+
+    .ld-url-input {
+        width: 500px;
+    }
+
+    .ld-time-input {
+        width: 40px;
+    }
+
+</style>
+
+<script>
+
+    var defaultData = 'http://localhost:8080/liveData';
+    function createChart() {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Live Data'
+            },
+            data: {
+                csvURL: defaultData,
+                enablePolling: true,
+                dataRefreshRate: 1
+            }
+        });
+    }
+
+    // Create the chart
+    createChart();
+
+
+</script>
